@@ -26,7 +26,7 @@ open dist/Retrolux.app
 The library lives in `~/Pictures/Retrolux Library.retrolux` by default; use `--library <path>` for another one. Headless checks: `Retrolux --library /tmp/x.retrolux --selftest`.
 
 ## Install
-Download the latest zip from the [releases page](https://github.com/konzertblock/retrolux/releases). The app is **not signed with a Developer ID**, so macOS will warn on first launch: right-click the app, choose *Open*, and confirm (or run `xattr -dr com.apple.quarantine /Applications/Retrolux.app`). Updates are delivered with [Sparkle](https://sparkle-project.org) and verified with an EdDSA signature.
+Download the latest disk image (`.dmg`) from the [releases page](https://github.com/konzertblock/retrolux/releases). The app is **not signed with a Developer ID**, so macOS will warn on first launch: right-click the app, choose *Open*, and confirm (or run `xattr -dr com.apple.quarantine /Applications/Retrolux.app`). Updates are delivered with [Sparkle](https://sparkle-project.org) and verified with an EdDSA signature.
 
 ## Releasing (maintainers)
 `./scripts/release.sh` builds the app, zips it and updates `docs/appcast.xml` (served through GitHub Pages). The EdDSA private key stays in the maintainer's keychain (account `retrolux`, created with Sparkle's `generate_keys --account retrolux`); the public key is set in `scripts/make_app.sh`.

@@ -7,9 +7,13 @@ VERSION="$(tr -d '[:space:]' < VERSION)"
 ./scripts/make_app.sh
 OUT=dist/release; rm -rf "$OUT"; mkdir -p "$OUT"
 ditto -c -k --sequesterRsrc --keepParent dist/Retrolux.app "$OUT/Retrolux-$VERSION.zip"
+# unsigned disk image for manual downloads, kept outside $OUT so the appcast only lists the zip
+STAGE="$(mktemp -d)"; cp -R dist/Retrolux.app "$STAGE/"; ln -s /Applications "$STAGE/Applications"
+hdiutil create -volname "Retrolux $VERSION" -srcfolder "$STAGE" -ov -format UDZO "dist/Retrolux-$VERSION.dmg" >/dev/null
+rm -rf "$STAGE"
 TOOLS="$(dirname "$(find .build/artifacts -name generate_appcast -path '*Sparkle/bin*' | head -1)")"
 "$TOOLS/generate_appcast" --account retrolux \
   --download-url-prefix "https://github.com/konzertblock/retrolux/releases/download/v$VERSION/" \
   --link "https://github.com/konzertblock/retrolux" \
   -o docs/appcast.xml "$OUT"
-echo "zip: $OUT/Retrolux-$VERSION.zip  appcast: docs/appcast.xml"
+echo "dmg: dist/Retrolux-$VERSION.dmg  zip: $OUT/Retrolux-$VERSION.zip  appcast: docs/appcast.xml"
