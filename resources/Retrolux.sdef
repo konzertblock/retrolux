@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Retrolux Terminology">
+  <suite name="Retrolux Suite" code="RLux" description="Scripting for Retrolux (independent fan project).">
+    <command name="import files" code="RLuxImpo" description="Import image files into the library.">
+      <cocoa class="RLImportFilesCommand"/>
+      <direct-parameter description="Files to import"><type type="file" list="yes"/></direct-parameter>
+      <result type="integer" description="Number of files handed to the importer"/>
+    </command>
+    <command name="count versions" code="RLuxCnts" description="Number of versions in the library.">
+      <cocoa class="RLCountVersionsCommand"/>
+      <result type="integer"/>
+    </command>
+    <command name="export selection" code="RLuxExpo" description="Export the selected versions as full-size JPEG into a folder.">
+      <cocoa class="RLExportSelectionCommand"/>
+      <direct-parameter description="Destination folder" type="file"/>
+      <result type="integer" description="Number of selected versions"/>
+    </command>
+  </suite>
+</dictionary>
