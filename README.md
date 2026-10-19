@@ -4,6 +4,19 @@ Retrolux is a fan project: a non-destructive photo manager and editor for macOS 
 
 > Not affiliated with, endorsed by, or connected to Apple Inc. or any other company. All trademarks belong to their owners.
 
+## Screenshots
+The demo library contains generated sample images only.
+
+| Browser with adjustments | Viewer |
+|---|---|
+| ![Browser](docs/screenshots/browser.png) | ![Adjustments](docs/screenshots/adjustments.png) |
+
+| Places | Full screen |
+|---|---|
+| ![Places](docs/screenshots/places.png) | ![Full screen](docs/screenshots/fullscreen.png) |
+
+![Preferences](docs/screenshots/preferences.png)
+
 ## Features
 - **Library**: projects, folders, albums, smart albums, stacks, keywords, ratings, labels, flags; originals are never modified (checksummed on import), managed or referenced in place; vaults (incremental backup) and a library first-aid check.
 - **Import**: files and folders, memory cards and cameras (ImageCaptureCore), Photos library, legacy libraries (`.aplibrary`, read-only); rename, metadata and adjustment presets, RAW+JPEG pairs, automatic project splitting, duplicate detection, post-import script.
